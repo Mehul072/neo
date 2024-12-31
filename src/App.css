@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+
+.App {
+  text-align: center;
+  font-family: "Plus Jakarta Sans", serif;
+  font-weight: 800;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.homepage img{
+  height: 89vh;
+  width: 100vw;
+  position: relative;
+}
+
+.imgCard {
+  position: absolute;
+  top: 30vh;
+  left: 10vw;
+  width: 30%;
+  height: 40%;
+  background-color: rgb(255, 255, 255);
+  box-shadow: -20px 20px 1px 1px #D3bd83;
+}
+
+.imgCard h1 {
+  font-size: x-large;
+  font-weight: 800;
+  
+}
+
+.contact-us {
+  font-size: large;
+  text-decoration: underline;
+}
+
+.service img{
+  width: 383px;
+  height: 537px;
+}
+
+
+h1 {
+  font-size: x-large;
+  font-weight: 800;
+  
+}
+
+.service h5{
+  color: #bf9f48;
+}
+
+.service-h1 {
+  font-size: xx-large;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+html {
+  background-color: #f6f1E3;
+}
+
+.service {
+  margin: auto;
+  width: 65vw;
+}
+
+.leftSide p{
+    margin-top: 2rem;
+    margin-left: 0px;
+    text-align: left;
+    color: black;
+    font-weight: 700;
+}
+
+.leftSide{
+  margin: 5rem;
+  margin-right: 2rem;
+  margin-left: 7rem;
+  text-align: left;
+}
+
+.rightSide p{
+  margin-left: 0rem;
+  margin-top: 2rem;
+  text-align: left;
+  color: black;
+  font-weight: 700;
+}
+
+.rightSide{
+  margin-top: 5rem;
+  margin-right: 5rem;
+  text-align: left;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+footer {
+  background-color: white;
+  padding-bottom: 4rem;
+  padding-top: 2rem;
+}
+footer h1{
+  margin-bottom: 2rem;
+}
+
+.left {
+  width: 30vw;
+  text-align: left;
+}
+
+.right {
+  width: 20vw;
+  flex-direction: column;
+  align-items:flex-start
+}
+
+.footer svg {
+  display: inline;
+}
+
+.ElevatorsPage img{
+  width: 22rem;
+  height: 20rem;
+  margin: auto;
+}
+
+.contact-page {
+  background-color: #f6f1E3;
+}
+
+@media screen and (max-width: 480px) {
+  .imgCard {
+    margin-left: 50px;
+    width: 60%;
+    height: 50%;
+  }
+  .homepage img{
+    width: 100vw;
+    margin-left: 0.7rem;
+    position: relative;
+  }
+  .service {
+    margin-left: 0.7rem;
+    width: 100vw;
+  }
+  .service-h1 {
+    display: block;
+    margin-left: 1.25em;
+  }
+  .service img{
+    width: 90vw;
+    height: 50vh;
+    margin: auto;
+  }
+  .leftSide{
+    margin: 0;
+    margin-top: 1em;
+    text-align: center;
+    margin-bottom: 5em;
+  }
+  .leftSide p{
+    margin: 0;
+    margin-top: 0rem;
+    margin-left: 2em;
+    color: black;
+    font-weight: 700;
+    margin-bottom: 3em;
+}
+.rightSide p{
+  margin-top: 0rem;
+  margin-left: 2em;
+  color: black;
+  font-weight: 700;
+  margin-bottom: 3em;
+}
+
+.rightSide{
+  margin: 0;
+  margin-top: 1em;
+  text-align: center;
+  align-items: center;
+  margin-bottom: 5em;
+}
+
+}
+
+/* General Styles */
+.footer-container {
+  padding: 1em;
+  background-color: #f9f9f9;
+  color: #000;
+}
+
+.footer-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1em;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+}
+
+.footer-section {
+  flex: 1 1 45%; /* Flex items take up 45% width on larger screens */
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.footer-section p {
+  margin: 0;
+  color: black;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: row; /* Stack sections vertically */
+    text-align:center;
+  }
+
+  .footer-section {
+    flex: 1 1 100%; /* Take full width for smaller screens */
+    justify-content: center;
+  }
+
+  .footer-section p {
+    
+    margin: 0.5em 0; /* Add space between paragraphs */
+  }
+
+  .footer-title {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer-title {
+    font-size: 1.2rem;
+  }
+
+  .footer-section {
+    gap: 0.5em; /* Reduce gap for smaller devices */
+  }
+
+  .footer-section p {
+    font-size: 0.9rem; /* Adjust font size for readability */
+  }
+}

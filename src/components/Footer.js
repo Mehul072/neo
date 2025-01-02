@@ -12,7 +12,7 @@ const Footer = () => {
             </div>
             <div className="footer-section right">     
                 <p> <Phone size={32} color="#bf9f48" weight="duotone" /> +91 9890362318</p>
-                <p> <EnvelopeSimple size={32} color="#bf9f48" weight="duotone" /> lorem30@gmail.com</p> 
+                <p> <EnvelopeSimple size={32} color="#bf9f48" weight="duotone" />elevatorsneo@gmail.com</p> 
             </div>
         </div>
     </footer>

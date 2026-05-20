@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { Building, EnvelopeSimple, Phone } from '@phosphor-icons/react';
 import useDynamicTitle from '../components/useDynamicTitle';
 
 const ContactUs = () => {
-  useDynamicTitle("Contact us | Neo elevators");
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
+  useDynamicTitle(
+    'Contact Us — Get a Free Elevator Quote | Neo Elevators',
+    'Contact Neo Elevators for a free quote on elevator installation, maintenance & modernization. Call +91 9890362318 or email elevatorsneo@gmail.com. Located in Ulhasnagar, Thane, Maharashtra.'
+  );
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [loading, setLoading] = useState(false);
 
-  const [loading, setLoading] = useState(false); // To show loading state
-
-  // Use REACT_APP_API_URL for flexibility in different environments
   const apiUrl = process.env.REACT_APP_API_URL || 'https://neo-elevators.onrender.com';
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,110 +19,83 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true); // Enable loading state
+    setLoading(true);
     try {
-      await axios.post(`${apiUrl}/send-message`, formData);
+      const res = await fetch(`${apiUrl}/send-message`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error('Failed to send');
       alert('Message sent successfully via WhatsApp!');
-      setFormData({ name: '', email: '', message: '' }); // Clear form after submission
+      setFormData({ name: '', email: '', message: '' });
     } catch (err) {
       alert('Error sending message. Please try again later.');
       console.error(err);
     } finally {
-      setLoading(false); // Disable loading state
+      setLoading(false);
     }
   };
 
   return (
-    <div className="contact-page min-h-screen bg-gray-50 mt-[6.1rem]">
-      <div className="max-w-screen-lg mx-auto px-4 py-10 md:py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="bg-white shadow-md rounded-lg p-8">
-            <h2 className="text-2xl font-semibold text-gray-800">Send Us a Message</h2>
-            <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
-              <div>
-                <label
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                  htmlFor="name"
-                >
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Enter your name"
-                  required
-                />
-              </div>
+    <div className="contact-wrapper mt-[4.5rem] md:mt-[4.5rem] pt-6 md:pt-2">
 
-              <div>
-                <label
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                  htmlFor="email"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Enter your email"
-                  required
-                />
-              </div>
+      <div className="contact-grid">
+        {/* Form */}
+        <div className="contact-form-card">
+          <h2>Send Us a Message</h2>
+          <p className="form-subtitle">Fill out the form and we'll get back to you shortly.</p>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label htmlFor="contact-name">Full Name</label>
+              <input type="text" id="contact-name" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" value={formData.email} onChange={handleChange} placeholder="Enter your email" required />
+            </div>
+            <div className="form-group">
+              <label htmlFor="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" value={formData.message} onChange={handleChange} placeholder="Write your message here" required></textarea>
+            </div>
+            <button type="submit" className="submit-btn" disabled={loading}>
+              {loading ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        </div>
 
-              <div>
-                <label
-                  className="block text-gray-700 text-sm font-medium mb-2"
-                  htmlFor="message"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  placeholder="Write your message here"
-                  required
-                ></textarea>
-              </div>
+        {/* Info Cards */}
+        <div className="contact-info">
+          <h2>Get in Touch</h2>
+          <p className="info-subtitle">Reach us through any of the channels below.</p>
 
-              <button
-                type="submit"
-                className="w-full bg-primary text-white py-2 px-4 rounded-lg font-medium hover:bg-primary-dark transition duration-300 disabled:opacity-50"
-                disabled={loading} // Disable button during loading
-              >
-                {loading ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
-          </div>
-
-          <div className="space-y-6 text-gray-700 mt-20">
-            <h2 className="text-2xl font-semibold">Get in Touch</h2>
-            <div>
-              <h3 className="font-medium text-lg">Address</h3>
-              <p>
-                Lower Ground Floor
-                Sudhi Villa. Block No. A-698/1395. Behind Netaji High School.
-                Ulhasnagar - 421 005. Dist. Thane. Maharashtra.
-              </p>
+          <div className="info-card">
+            <div className="info-icon">
+              <Building size={24} color="#B49D5E" weight="duotone" />
             </div>
             <div>
-              <h3 className="font-medium text-lg">Phone</h3>
+              <h3>Our Office</h3>
+              <p>Lower Ground Floor, Sudhi Villa. Block No. A-698/1395. Behind Netaji High School. Ulhasnagar - 421 005. Dist. Thane. Maharashtra.</p>
+            </div>
+          </div>
+
+          <div className="info-card">
+            <div className="info-icon">
+              <Phone size={24} color="#B49D5E" weight="duotone" />
+            </div>
+            <div>
+              <h3>Phone</h3>
               <p>+91 9890362318</p>
               <p>+91 8855024000</p>
             </div>
+          </div>
+
+          <div className="info-card">
+            <div className="info-icon">
+              <EnvelopeSimple size={24} color="#B49D5E" weight="duotone" />
+            </div>
             <div>
-              <h3 className="font-medium text-lg">Email</h3>
+              <h3>Email</h3>
               <p>elevatorsneo@gmail.com</p>
             </div>
           </div>

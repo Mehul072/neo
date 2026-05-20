@@ -1,3 +1,13 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemaps
+Sitemap: https://neoelevators.in/sitemap.xml
+
+# Disallow common non-content paths
+Disallow: /static/
+Disallow: /*.json$
+
+# Crawl-delay (optional, be polite to crawlers)
+Crawl-delay: 1

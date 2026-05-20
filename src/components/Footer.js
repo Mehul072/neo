@@ -1,22 +1,54 @@
-import { Building, EnvelopeSimple, Phone } from '@phosphor-icons/react'
-import React from 'react'
+import { Building, EnvelopeSimple, Phone, NavigationArrow } from '@phosphor-icons/react';
+import React from 'react';
+import { Link } from 'react-router';
 
 const Footer = () => {
   return (
-    <footer className="footer-container">
-        <h1 className="footer-title">Get In Touch</h1>
-        <div className="footer">
-            <div className="footer-section left">
-                <Building size={52} color="#bf9f48" weight="duotone"/>
-                <p>Lower Ground Floor Sudhi Villa. Block No. A-698/1395. Behind Netaji High School. Ulhasnagar - 421 005. Dist. Thane. Maharashtra.</p>
-            </div>
-            <div className="footer-section right">     
-                <p> <Phone size={32} color="#bf9f48" weight="duotone" /> +91 9890362318</p>
-                <p> <EnvelopeSimple size={32} color="#bf9f48" weight="duotone" />elevatorsneo@gmail.com</p> 
-            </div>
+    <footer className="premium-footer">
+      <div className="footer-inner">
+        {/* Brand */}
+        <div className="footer-brand">
+          <h2>Neo <span>Elevators</span></h2>
+          <p>Pioneer in modern elevator solutions, delivering innovative and reliable vertical transportation systems since 2005.</p>
         </div>
-    </footer>
-  )
-}
 
-export default Footer
+        {/* Quick Links */}
+        <div className="footer-col">
+          <h3>Quick Links</h3>
+          <Link to="/" className="footer-link">
+            <NavigationArrow size={14} weight="bold" /> Home
+          </Link>
+          <Link to="/elevators" className="footer-link">
+            <NavigationArrow size={14} weight="bold" /> Elevators
+          </Link>
+          <Link to="/contactus" className="footer-link">
+            <NavigationArrow size={14} weight="bold" /> Contact Us
+          </Link>
+        </div>
+
+        {/* Contact */}
+        <div className="footer-col">
+          <h3>Contact</h3>
+          <div className="footer-link">
+            <Building size={16} color="#D3C08A" weight="duotone" />
+            <span>Ulhasnagar, Thane, Maharashtra</span>
+          </div>
+          <a href="tel:+919890362318" className="footer-link">
+            <Phone size={16} color="#D3C08A" weight="duotone" />
+            <span>+91 9890362318</span>
+          </a>
+          <a href="mailto:elevatorsneo@gmail.com" className="footer-link">
+            <EnvelopeSimple size={16} color="#D3C08A" weight="duotone" />
+            <span>elevatorsneo@gmail.com</span>
+          </a>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        © {new Date().getFullYear()} Neo Elevators. All rights reserved.
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Building, EnvelopeSimple, Phone } from '@phosphor-icons/react';
+import { Link } from 'react-router';
 import useDynamicTitle from '../components/useDynamicTitle';
 
 const ContactUs = () => {
   useDynamicTitle(
-    'Contact Us — Get a Free Elevator Quote | Neo Elevators',
-    'Contact Neo Elevators for a free quote on elevator installation, maintenance & modernization. Call +91 9890362318 or email elevatorsneo@gmail.com. Located in Ulhasnagar, Thane, Maharashtra.'
+    'Contact Neo Elevators | Premium Elevator Solutions',
+    'Get a free quote on premium elevator installation, maintenance, and modernization from Neo Elevators. Contact our Ulhasnagar, Maharashtra team today.'
   );
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [loading, setLoading] = useState(false);
@@ -38,7 +39,10 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="contact-wrapper mt-[4.5rem] md:mt-[4.5rem] pt-6 md:pt-2">
+    <div className="contact-wrapper mt-[4.5rem] md:mt-[4.5rem] pt-6 md:pt-4">
+      <h1 className="text-center text-3xl md:text-4xl font-extrabold text-charcoal mb-8 animate-fade-in">
+        Contact Neo Elevators
+      </h1>
 
       <div className="contact-grid">
         {/* Form */}
@@ -97,6 +101,17 @@ const ContactUs = () => {
             <div>
               <h3>Email</h3>
               <p>elevatorsneo@gmail.com</p>
+            </div>
+          </div>
+
+          {/* Internal links for SEO & Navigation */}
+          <div className="info-card" style={{ background: 'rgba(180, 157, 94, 0.08)', border: '1px solid rgba(180, 157, 94, 0.25)' }}>
+            <div className="info-icon">
+              <Building size={24} color="#B49D5E" weight="duotone" />
+            </div>
+            <div>
+              <h3>Quick Navigation</h3>
+              <p>Explore our premium <Link to="/elevators" className="text-primary hover:underline font-bold">Elevator Designs</Link> catalog or return to the <Link to="/" className="text-primary hover:underline font-bold">Homepage</Link>.</p>
             </div>
           </div>
         </div>

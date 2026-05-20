@@ -19,8 +19,8 @@ const categories = [
 const ElevatorsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   useDynamicTitle(
-    'Elevator Designs & Components | Neo Elevators',
-    'Browse our premium collection of elevator cabin designs, ceiling panels, button panels, and chair lifts. View our catalog of modern elevator interiors and components.'
+    'Available Elevator Designs | Neo Elevators',
+    'Explore our collection of premium elevator cabin designs, ceiling panels, button panels, and chair lifts from Neo Elevators.'
   );
 
   const getFilteredImages = () => {

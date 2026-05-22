@@ -9,8 +9,8 @@ import { Link } from 'react-router';
 
 const Homepage = () => {
   useDynamicTitle(
-    'Neo Elevators — Premium Elevator Solutions in Maharashtra, India',
-    'Neo Elevators delivers premium residential, hospital & industrial elevator systems across Maharashtra. Modern designs, expert installation, reliable maintenance. Get a free quote today.'
+    'Neo Elevators | Premium Elevator Solutions',
+    'Neo Elevators offers premium residential, hospital, and industrial lift installation and maintenance in Maharashtra. Get a free quote.'
   );
   return (
     <div className='mt-[4.5rem] md:mt-[4.5rem]'>

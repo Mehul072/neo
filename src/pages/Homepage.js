@@ -1,6 +1,6 @@
 import React from 'react';
-import Hero from '../assets/3d-rendering-modern-steel-elevator-lift-lobby-in-business-hotel-with-luxury-design-2AHN75X-transformed (2).png';
-import propertyImg from '../assets/property.jpg';
+import Hero from '../assets/hero-elevator.webp';
+import propertyImg from '../assets/property.webp';
 import hospitalImg from '../assets/hospital.webp';
 import industrialImg from '../assets/industrial-building.avif';
 import Service from '../components/Service';
@@ -16,7 +16,7 @@ const Homepage = () => {
     <div className='mt-[4.5rem] md:mt-[4.5rem]'>
       {/* Hero Section */}
       <section className="hero-section">
-        <img src={Hero} alt="Neo Elevators — Modern steel elevator lobby with luxury design in a business hotel" className="hero-bg" />
+        <img src={Hero} alt="Neo Elevators — Modern steel elevator lobby with luxury design in a business hotel" className="hero-bg" loading="eager" fetchPriority="high" />
         <div className="hero-overlay"></div>
         <div className="hero-content animate-fade-in-up">
           <h1>

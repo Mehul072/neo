@@ -18,6 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "node prerender.mjs",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -40,6 +41,8 @@
     ]
   },
   "devDependencies": {
+    "puppeteer": "^25.0.4",
+    "serve-handler": "^6.1.7",
     "tailwindcss": "^3.4.17"
   }
 }

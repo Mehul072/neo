@@ -13,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "node prerender.mjs",
+    "postbuild": "node -e \"if(!process.env.CI){require('child_process').execSync('node prerender.mjs',{stdio:'inherit'})}else{console.log('Skipping prerender on CI')}\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

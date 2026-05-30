@@ -9,33 +9,23 @@ const ContactUs = () => {
     'Get a free quote on premium elevator installation, maintenance, and modernization from Neo Elevators. Contact our Ulhasnagar, Maharashtra team today.'
   );
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [loading, setLoading] = useState(false);
 
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://neo-elevators.onrender.com';
+  const WHATSAPP_NUMBER = '919890362318'; // Neo Elevators WhatsApp number
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch(`${apiUrl}/send-message`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error('Failed to send');
-      alert('Message sent successfully via WhatsApp!');
-      setFormData({ name: '', email: '', message: '' });
-    } catch (err) {
-      alert('Error sending message. Please try again later.');
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
+    const { name, email, message } = formData;
+
+    const text = `Hi Neo Elevators!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Message:* ${encodeURIComponent(message)}`;
+    const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+    window.open(waUrl, '_blank');
+    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
@@ -62,8 +52,8 @@ const ContactUs = () => {
               <label htmlFor="contact-message">Message</label>
               <textarea id="contact-message" name="message" rows="5" value={formData.message} onChange={handleChange} placeholder="Write your message here" required></textarea>
             </div>
-            <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? 'Sending...' : 'Send Message'}
+            <button type="submit" className="submit-btn">
+              Send via WhatsApp
             </button>
           </form>
         </div>
